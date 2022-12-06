@@ -17,9 +17,13 @@
             <button @click="getEmail(this.number)">Genera e-mail</button>
         </div>
         <div v-if="emails.length === this.number" id="mail_list">
-            <ul>
-                <li v-for="mail in emails">{{mail}}</li>
+            <ul v-if="alphabetical === 0">
+                <li v-for="(mail, index) in emails" @click="chooseOne(index)">{{mail}}</li>
             </ul>
+            <ul v-if="alphabetical === 1">
+                <li v-for="(mail, index) in emails_sorted" @click="chooseOneSorted(index)">{{mail}}</li>
+            </ul>
+            <button v-if="alphabetical === 0" @click="alphabeticalOrder">Ordina alfabeticamente</button>
         </div>
         
     </div>
