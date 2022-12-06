@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Email List</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h1>Problemi a creare l'email perfetta?</h1>
+        <div class="create">
+            <label for="number_mail">Quante e-mail vuoi che generiamo?</label>
+            <input v-model="number" type="number" name="" id="number_mail">
+            <button @click="getEmail(this.number)">Genera e-mail</button>
+        </div>
+        <div v-if="emails.length === this.number" id="mail_list">
+            <ul>
+                <li v-for="mail in emails">{{mail}}</li>
+            </ul>
+        </div>
+        
+    </div>
+
+    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
